@@ -1,6 +1,6 @@
-import './App.css';
 import { Button, Alert, Breadcrumb } from 'react-bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import './App.scss';
+
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
       <Breadcrumb>
         <Breadcrumb.Item>Test</Breadcrumb.Item>
       </Breadcrumb>
-        <Alert variant="success">This is a button</Alert>
+        <Alert variant='rosewood'>This is a button</Alert>
         <Button>Test Button</Button>
     </div>
   );
