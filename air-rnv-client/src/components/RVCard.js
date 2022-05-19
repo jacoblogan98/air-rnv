@@ -88,7 +88,7 @@ function RVCard({ rv }) {
         </Card.Body>
       </Card>
     </Col>
-    
+   
   );
 }
 
