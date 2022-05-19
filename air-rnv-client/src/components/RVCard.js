@@ -45,12 +45,9 @@ function RVCard({ rv }) {
           className="mb-3"
           />
           <Card.Title>The {name}.</Card.Title>
-          <Card.Text>Rate: ${day_rate} /night</Card.Text>
-          <Card.Text>Location: {location}</Card.Text>
-          <Card.Text>Sleeps: {occupancy}</Card.Text>
-          <Card.Text>Length: {length} ft</Card.Text>
-          <Card.Text>Class: {rv_class}</Card.Text>
-          <Card.Text>Year: {year}</Card.Text>
+          <Card.Text className="small my-1">Rate: ${day_rate} /night</Card.Text>
+          <Card.Text className="small my-1">Location: {location}</Card.Text>
+          <Card.Text className="small my-1">Sleeps: {occupancy}</Card.Text>
           
           <Row className="pb-3 d-flex align-content-center" >
             {pet_friendly
@@ -83,12 +80,10 @@ function RVCard({ rv }) {
           
 
           <Card.Subtitle className="mb-2 text-muted">{description}</Card.Subtitle>
-          {/* <Card.Link href="">Card Link</Card.Link>
-          <Card.Link href="#">Another Link</Card.Link> */}
         </Card.Body>
       </Card>
     </Col>
-   
+    
   );
 }
 
