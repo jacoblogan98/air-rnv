@@ -15,6 +15,7 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        setRvList(data);
       });
   }, []);
 
@@ -27,9 +28,6 @@ function App() {
         </Route>
         <Route exact path="/about">
           <About />
-        </Route>
-        <Route exact path="/rvlist">
-          <RvList />
         </Route>
       </Switch>
       {/* <Breadcrumb variant="rosewood">
