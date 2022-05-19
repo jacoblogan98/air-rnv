@@ -4,6 +4,7 @@ import "./App.scss";
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import ListRv from "./pages/ListRv"
 
 function App() {
   const [rvList, setRvList] = useState([]);
@@ -23,6 +24,9 @@ function App() {
         </Route>
         <Route exact path="/about">
           <About />
+        </Route>
+        <Route exact path="/listRv">
+          <ListRv />
         </Route>
       </Switch>
       {/* <Breadcrumb variant="rosewood">
