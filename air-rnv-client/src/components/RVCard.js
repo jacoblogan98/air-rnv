@@ -52,26 +52,26 @@ function RVCard({ rv }) {
           <Row className="pb-3 d-flex align-content-center" >
             {pet_friendly
               ? <Col>
-                  <Card.Text>{pet_friendly ? <i class="fa fa-paw" aria-hidden="true" /> : <i class="fa fa-paw" aria-hidden="true" style={{display: "none"}}/>}
+                  <Card.Text>{pet_friendly ? <i className="fa fa-paw" aria-hidden="true" /> : <i class="fa fa-paw" aria-hidden="true" style={{display: "none"}}/>}
                   </Card.Text>
                 </Col>
               : null
               }
             {shower 
               ? <Col>
-                  <Card.Text> <i class="fa fa-shower" aria-hidden="true" /></Card.Text>  
+                  <Card.Text> <i className="fa fa-shower" aria-hidden="true" /></Card.Text>  
                 </Col>
               : null
               }
             {tv 
               ? <Col>
-                  <Card.Text>{tv ? <i class="fa fa-television" aria-hidden="true" /> : null}</Card.Text>
+                  <Card.Text>{tv ? <i className="fa fa-television" aria-hidden="true" /> : null}</Card.Text>
                 </Col>
               : null
               }
             {air_conditioned
             ? <Col>
-                <Card.Text>{air_conditioned ? <i class="fa fa-snowflake-o" aria-hidden="true" /> : null}</Card.Text>
+                <Card.Text>{air_conditioned ? <i className="fa fa-snowflake-o" aria-hidden="true" /> : null}</Card.Text>
               </Col>
             : null
             }
