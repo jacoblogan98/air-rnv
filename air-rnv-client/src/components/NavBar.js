@@ -8,7 +8,7 @@ import logo from "../RNV-Logo.png"
 function NavBar() {
   return (
       <Navbar sticky="top" bg="sand" expand="lg">
-        <Container className="ms-2">
+        <Container className="ms-2 ">
           <Navbar.Brand href="/">
             <img
             src={logo}
@@ -18,12 +18,12 @@ function NavBar() {
             alt="RNV Logo"
             />
             Air R&V
-            </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+          <Navbar.Collapse id="basic-navbar-nav" >
+            <Nav className="me-0" >
+              <Nav.Link href="/about">About</Nav.Link>
               <Nav.Link href="/listRv">List an RV for Rent!</Nav.Link>
-              <Nav.Link href="/about">About Us</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
