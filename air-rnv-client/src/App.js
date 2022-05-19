@@ -5,7 +5,6 @@ import "./App.scss";
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import RvList from "./pages/RvList";
 
 function App() {
   const [rvList, setRvList] = useState([]);
@@ -13,10 +12,7 @@ function App() {
   useEffect(() => {
     fetch("/rvs")
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setRvList(data);
-      });
+      .then(setRvList);
   }, []);
 
   return (
