@@ -7,14 +7,13 @@ import logo from "../RNV-Logo.png"
 
 function NavBar() {
   return (
-    <div>
-      <Navbar bg="sand" expand="lg">
-        <Container>
+      <Navbar sticky="top" bg="sand" expand="lg">
+        <Container className="ms-2">
           <Navbar.Brand href="/">
             <img
             src={logo}
-            width="50"
-            height="50"
+            width="85"
+            height="70"
             className="me-4"
             alt="RNV Logo"
             />
@@ -29,7 +28,6 @@ function NavBar() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    </div>
   );
 }
 
