@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 
-function RVCard({ rv, showDetails }) {
+function RVCard({ rv }) {
   const {
     id,
     name,
@@ -20,13 +20,14 @@ function RVCard({ rv, showDetails }) {
     user_id,
   } = rv;
 
-  //   const showDetails = (id) => {
-  //     fetch(`/rvs/${id}`)
-  //     .then(res => res.json())
-  //     .then(data => {
-  //         console.log(data)
-  //     })
-  //   };
+    const showDetails = (id) => {
+      fetch(`/rvs/${id}`)
+      .then(res => res.json())
+      .then(data => {
+          console.log(data)
+      })
+    };
+
   return (
     <Card style={{ width: "18rem" }} onClick={() => showDetails(id)}>
       <Card.Body>
