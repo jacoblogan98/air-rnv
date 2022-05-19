@@ -1,0 +1,58 @@
+$theme-colors: (
+    "rosewood": #261500,
+    "olive": #727a51,
+    "sand": #c7B8a3,
+    "maple": #8a765d,
+    "cherry": #520a00
+);
+.btn:focus {
+    outline: none
+}
+
+#btn-sand {
+    background-color: #C7B8A3;
+}
+
+#btn-sand:hover {
+    background-color: #af9b81
+}
+
+#btn-rosewood {
+    background-color: #432400;
+    color: white;
+}
+
+#btn-rosewood:hover {
+    background-color: #261500;
+}
+
+#btn-olive {
+    background-color: #727A51;
+    color: white;
+}
+
+#btn-olive:hover {
+    background-color: #656c47;
+}
+
+#btn-maple {
+    background-color: #8A765D;
+    color: white;
+}
+
+#btn-maple:hover {
+    background-color: #72614d;
+}
+
+#btn-cherry {
+    background-color: #660d01;
+    color: white;
+}
+
+#btn-cherry:hover {
+    background-color: #480a00
+}
+
+@import "~bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap/scss/bootstrap"
+
