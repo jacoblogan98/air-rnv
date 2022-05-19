@@ -18,7 +18,7 @@ function NavBar() {
             className="me-4"
             alt="RNV Logo"
             />
-            RV Logo
+            Air R&V
             </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
