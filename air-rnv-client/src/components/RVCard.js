@@ -38,10 +38,10 @@ function RVCard({ rv }) {
         <Card.Text>Length: {length} ft</Card.Text>
         <Card.Text>Class: {rv_class}</Card.Text>
         <Card.Text>Year: {year}</Card.Text>
-        <Card.Text>{pet_friendly ? <i class="fa fa-paw" aria-hidden="true" /> : null}</Card.Text>
-        <Card.Text>{shower ? <i class="fa fa-shower" aria-hidden="true" /> : null}</Card.Text>
-        <Card.Text>{tv ? <i class="fa fa-television" aria-hidden="true" /> : null}</Card.Text>
-        <Card.Text>{air_conditioned ? <i class="fa fa-snowflake-o" aria-hidden="true" /> : null}</Card.Text>
+        <Card.Text>{pet_friendly ? <i className="fa fa-paw" aria-hidden="true" /> : null}</Card.Text>
+        <Card.Text>{shower ? <i className="fa fa-shower" aria-hidden="true" /> : null}</Card.Text>
+        <Card.Text>{tv ? <i className="fa fa-television" aria-hidden="true" /> : null}</Card.Text>
+        <Card.Text>{air_conditioned ? <i className="fa fa-snowflake-o" aria-hidden="true" /> : null}</Card.Text>
         <Card.Subtitle className="mb-2 text-muted">{description}</Card.Subtitle>
         {/* <Card.Link href="">Card Link</Card.Link>
         <Card.Link href="#">Another Link</Card.Link> */}
