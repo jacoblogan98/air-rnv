@@ -12,10 +12,7 @@ function App() {
   useEffect(() => {
     fetch("/rvs")
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setRvList(data);
-      });
+      .then(setRvList);
   }, []);
 
   return (
