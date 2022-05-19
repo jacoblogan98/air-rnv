@@ -4,7 +4,7 @@ import Card from "react-bootstrap/Card";
 function RVCard({ rv }) {
   const {
     id,
-    name,
+    name, 
     occupancy,
     location,
     year,
@@ -29,7 +29,7 @@ function RVCard({ rv }) {
     };
 
   return (
-    <Card style={{ width: "18rem" }} onClick={() => showDetails(id)}>
+    <Card style={{ width: "18rem" }} onClick={() => showDetails(id)} role="button" >
       <Card.Body>
         <Card.Title>The {name}.</Card.Title>
         <Card.Text>Rate: ${day_rate} /night</Card.Text>
