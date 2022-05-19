@@ -23,7 +23,7 @@ function NavBar() {
           <Navbar.Collapse id="basic-navbar-nav" >
             <Nav className="me-0" >
               <Nav.Link href="/about">About</Nav.Link>
-              <Nav.Link href="/rvlist">RV Listing</Nav.Link>
+              <Nav.Link href="/listRv">List an RV for Rent!</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
