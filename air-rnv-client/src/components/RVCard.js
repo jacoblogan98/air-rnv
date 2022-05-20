@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
-function RVCard({ rv, showDetails }) {
+function RVCard({ rv, handleCardClick }) {
   const {
     id,
     name,
@@ -20,7 +20,7 @@ function RVCard({ rv, showDetails }) {
 
   return (
     <Col>
-      <Card onClick={() => showDetails(id)} role="button">
+      <Card onClick={() => handleCardClick(id)} role="button">
         <Card.Body>
           <Card.Img 
           variant="top" 

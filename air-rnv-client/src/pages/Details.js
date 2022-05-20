@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import ImageCarousel from "../components/ImageCarousel";
 
 
-function Details({ currentDetails }) {
+function Details() {
+  const [rvDetails, setRvDetails] = useState([])
+  const [isLoaded, setIsLoaded] = useState(false)
+  const params = useParams()
+
+  useEffect(() => {
+    fetch(`/rvs/${params.id}`)
+    .then(resp => resp.json())
+    .then((rvData) => {
+      setRvDetails(rvData)
+      setIsLoaded(true)
+    })
+  }, [params.id])
 
   const {
     air_conditioned,
@@ -23,22 +36,23 @@ function Details({ currentDetails }) {
     user_id,
     year,
     reviews
-  } = currentDetails;
+  } = rvDetails;
+
+  if (!isLoaded) return <h3>Loading...</h3>
 
   const renderReviews = reviews.map((review) => {
     return (
-      <ul> 
+      <ul key={review.id}> 
         <li>Rating: {review.rating}/5</li>
         <li>By: {review.user_name}</li>
         <li>{review.content}</li>
       </ul>
   )}
-    
 )
-
+  
   return (
     <div>
-      <h2>Details Page</h2>
+      <h2 className="bubble-font ">{name}</h2>
       <ul>
         {renderReviews}
       </ul>

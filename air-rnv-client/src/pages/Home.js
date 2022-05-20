@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import RVCard from "../components/RVCard";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+
 
 function Home({ rvList, showDetails }) {
-  const [displayDetails, setDisplayDetails] = useState(false);
 
   const renderRvs = rvList.map((rv) => {
     console.log(rv);

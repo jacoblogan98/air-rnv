@@ -10,7 +10,6 @@ import Details from "./pages/Details";
 function App() {
   const history = useHistory();
   const [rvList, setRvList] = useState([]);
-  const [currentDetails, setCurrentDetails] = useState([]);
 
   useEffect(() => {
     fetch("/rvs")
@@ -18,13 +17,8 @@ function App() {
       .then((data) => setRvList(data));
   }, []);
 
-  const showDetails = (id) => {
-    fetch(`/rvs/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setCurrentDetails(data);
-        history.push("/details")
-      });
+  const handleCardClick = (id) => {
+    history.push(`/details/${id}`)
   };
 
   return (
@@ -32,7 +26,7 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path="/">
-          <Home rvList={rvList} showDetails={showDetails} />
+          <Home rvList={rvList} handleCardClick={handleCardClick} />
         </Route>
         <Route exact path="/about">
           <About />
@@ -40,29 +34,10 @@ function App() {
         <Route exact path="/listRv">
           <ListRv />
         </Route>
-        <Route exact path="/details">
-          <Details currentDetails={currentDetails} />
+        <Route exact path="/details/:id">
+          <Details />
         </Route>
       </Switch>
-      {/* <Breadcrumb variant="rosewood">
-        <Breadcrumb.Item>Test</Breadcrumb.Item>
-      </Breadcrumb>
-      <Alert variant="rosewood">This is a button</Alert>
-      <Button variant="maple" className="m-2" id="btn-maple">
-        Button
-      </Button>
-      <Button variant="olive" className="m-2" id="btn-olive">
-        Button
-      </Button>
-      <Button variant="rosewood" className="m-2" id="btn-rosewood">
-        Button
-      </Button>
-      <Button variant="cherry" className="m-2" id="btn-cherry">
-        Button
-      </Button>
-      <Button variant="sand" className="m-2" id="btn-sand">
-        Button
-      </Button> */}
     </div>
   );
 }
