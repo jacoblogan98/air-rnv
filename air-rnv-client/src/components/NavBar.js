@@ -29,8 +29,12 @@ function NavBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-0">
-            <Nav.Link className="mt-3" href="/about">About</Nav.Link>
-            <Nav.Link className="mt-3" href="/listRv">List an RV for Rent!</Nav.Link>
+            <Nav.Link className="mt-3" href="/about">
+              About
+            </Nav.Link>
+            <Nav.Link className="mt-3" href="/listRv">
+              List an RV for Rent!
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
