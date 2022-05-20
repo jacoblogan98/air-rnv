@@ -1,16 +1,11 @@
-import React, { useState } from "react";
 import React, { useState, useEffect } from "react";
 import RVCard from "../components/RVCard";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import FilterModal from "../components/FilterModal";
 
-function Home({ rvList, handleCardClick }) {
-  const [showModal, setShowModal] = useState(false);
-
-  const renderRvs = rvList.map((rv) => {
 function Home({ handleCardClick }) {
-
+  const [showModal, setShowModal] = useState(false);
   const [rvList, setRvList] = useState([]);
   const [rvSearch, setRvSearch] = useState("");
 
@@ -40,7 +35,7 @@ function Home({ handleCardClick }) {
       <button
         onClick={() => setShowModal(!showModal)}
         type="button"
-        class="btn btn-primary"
+        className="btn btn-primary"
         data-toggle="modal"
         data-target="#exampleModalCenter"
       >
