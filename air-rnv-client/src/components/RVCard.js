@@ -61,7 +61,7 @@ function RVCard({ rv, showDetails }) {
             ? <Col>
                 <Card.Text>{air_conditioned ? <i class="fa fa-snowflake-o" aria-hidden="true" /> : null}</Card.Text>
               </Col>
-            ) : null}
+             : null}
           </Row>
 
           <Card.Subtitle className="mb-2 text-muted">{description}</Card.Subtitle>
