@@ -27,7 +27,7 @@ function RVCard({ rv, showDetails }) {
           src={image} 
           className="mb-3 image_card"
           />
-          <Card.Title>The {name}.</Card.Title>
+          <Card.Title> The {name}.</Card.Title>
 
           <Card.Text className="small my-1">Rate: ${day_rate} /night</Card.Text>
           <Card.Text className="small my-1">Location: {location}</Card.Text>

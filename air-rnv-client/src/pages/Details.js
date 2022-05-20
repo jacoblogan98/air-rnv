@@ -21,13 +21,28 @@ function Details({ currentDetails }) {
     updated_at,
     user_id,
     year,
+    reviews
   } = currentDetails;
 
   const renderPhotos = photos.map((photo) => <img src={photo.url} alt={photo.id} key={photo.id}/>)
 
+  const renderReviews = reviews.map((review) => {
+    return (
+      <ul> 
+        <li>Rating: {review.rating}/5</li>
+        <li>By: {review.user_name}</li>
+        <li>{review.content}</li>
+      </ul>
+  )}
+    
+)
+
   return (
     <div>
       <h2>Details Page</h2>
+      <ul>
+        {renderReviews}
+      </ul>
       {renderPhotos}
       <h4>Name: {name}</h4>
       <h4>Length: {length}</h4>

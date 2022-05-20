@@ -58,6 +58,14 @@ $theme-colors: (
     width: 500px
 }
 
+.bubble-font {
+    font-family: "Fascinate Inline";
+}
+
+.big-font {
+    font-size: 2rem
+}
+
 @import "~bootstrap/scss/bootstrap";
 
 
