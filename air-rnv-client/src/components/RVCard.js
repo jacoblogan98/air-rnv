@@ -36,40 +36,57 @@ function RVCard({ rv, showDetails }) {
           <Card.Text className="small my-1">Rate: ${day_rate} /night</Card.Text>
           <Card.Text className="small my-1">Location: {location}</Card.Text>
           <Card.Text className="small my-1">Sleeps: {occupancy}</Card.Text>
-          
-          <Row className="pb-3 d-flex align-content-center" >
-            {pet_friendly
-              ? <Col>
-                  <Card.Text>{pet_friendly ? <i class="fa fa-paw" aria-hidden="true" /> : <i class="fa fa-paw" aria-hidden="true" style={{display: "none"}}/>}
-                  </Card.Text>
-                </Col>
-              : null
-              }
-            {shower 
-              ? <Col>
-                  <Card.Text> <i class="fa fa-shower" aria-hidden="true" /></Card.Text>  
-                </Col>
-              : null
-              }
-            {tv 
-              ? <Col>
-                  <Card.Text>{tv ? <i class="fa fa-television" aria-hidden="true" /> : null}</Card.Text>
-                </Col>
-              : null
-              }
-            {air_conditioned
-            ? <Col>
-                <Card.Text>{air_conditioned ? <i class="fa fa-snowflake-o" aria-hidden="true" /> : null}</Card.Text>
+
+          <Row className="pb-3 d-flex align-content-center">
+            {pet_friendly ? (
+              <Col>
+                <Card.Text>
+                  {pet_friendly ? (
+                    <i className="fa fa-paw" aria-hidden="true" />
+                  ) : (
+                    <i
+                      className="fa fa-paw"
+                      aria-hidden="true"
+                      style={{ display: "none" }}
+                    />
+                  )}
+                </Card.Text>
+              </Col>
+            ) : null}
+            {shower ? (
+              <Col>
+                <Card.Text>
+                  {" "}
+                  <i className="fa fa-shower" aria-hidden="true" />
+                </Card.Text>
+              </Col>
+            ) : null}
+            {tv ? (
+              <Col>
+                <Card.Text>
+                  {tv ? (
+                    <i className="fa fa-television" aria-hidden="true" />
+                  ) : null}
+                </Card.Text>
+              </Col>
+            ) : null}
+            {air_conditioned ? (
+              <Col>
+                <Card.Text>
+                  {air_conditioned ? (
+                    <i className="fa fa-snowflake-o" aria-hidden="true" />
+                  ) : null}
+                </Card.Text>
               </Col>
             ) : null}
           </Row>
 
-          <Card.Subtitle className="mb-2 text-muted">{description}</Card.Subtitle>
+          <Card.Subtitle className="mb-2 text-muted">
+            {description}
+          </Card.Subtitle>
         </Card.Body>
       </Card>
     </Col>
-    
-
   );
 }
 
