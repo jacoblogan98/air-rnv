@@ -9,17 +9,13 @@ function RVCard({ rv, showDetails }) {
     name,
     occupancy,
     location,
-    year,
     description,
-    length,
-    rv_class,
-    day_rate,
     pet_friendly,
     air_conditioned,
     shower,
     tv,
-    image,
-    user_id,
+    day_rate,
+    image
   } = rv;
 
   return (
@@ -62,7 +58,7 @@ function RVCard({ rv, showDetails }) {
             ? <Col>
                 <Card.Text>{air_conditioned ? <i className="fa fa-snowflake-o" aria-hidden="true" /> : null}</Card.Text>
               </Col>
-             : null}
+            : null}
           </Row>
 
           <Card.Subtitle className="mb-2 text-muted">

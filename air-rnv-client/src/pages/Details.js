@@ -1,11 +1,11 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 
-function Details({ showDetails, currentDetails }) {
-  const history = useHistory();
+
+function Details({ currentDetails }) {
 
   const {
     air_conditioned,
+    photos,
     created_at,
     day_rate,
     description,
@@ -23,9 +23,12 @@ function Details({ showDetails, currentDetails }) {
     year,
   } = currentDetails;
 
+  const renderPhotos = photos.map((photo) => <img src={photo.url} alt={photo.id} key={photo.id}/>)
+
   return (
     <div>
       <h2>Details Page</h2>
+      {renderPhotos}
       <h4>Name: {name}</h4>
       <h4>Length: {length}</h4>
       <h4>Day Rate: {day_rate}</h4>

@@ -22,10 +22,9 @@ function App() {
     fetch(`/rvs/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        //console.log(data);
         setCurrentDetails(data);
+        history.push("/details")
       });
-    history.push("/details");
   };
 
   return (
