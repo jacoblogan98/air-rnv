@@ -1,32 +1,48 @@
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./App.scss";
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import ListRv from "./pages/ListRv"
+import ListRv from "./pages/ListRv";
+import Details from "./pages/Details";
 
 function App() {
+  const history = useHistory();
   const [rvList, setRvList] = useState([]);
+  const [currentDetails, setCurrentDetails] = useState([]);
 
   useEffect(() => {
     fetch("/rvs")
       .then((res) => res.json())
-      .then(setRvList);
+      .then((data) => setRvList(data));
   }, []);
+
+  const showDetails = (id) => {
+    fetch(`/rvs/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        //console.log(data);
+        setCurrentDetails(data);
+      });
+    history.push("/details");
+  };
 
   return (
     <div className="App">
       <NavBar />
       <Switch>
         <Route exact path="/">
-          <Home rvList={rvList} />
+          <Home rvList={rvList} showDetails={showDetails} />
         </Route>
         <Route exact path="/about">
           <About />
         </Route>
         <Route exact path="/listRv">
           <ListRv />
+        </Route>
+        <Route exact path="/details">
+          <Details currentDetails={currentDetails} />
         </Route>
       </Switch>
       {/* <Breadcrumb variant="rosewood">

@@ -3,12 +3,10 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
-
-
-function RVCard({ rv }) {
+function RVCard({ rv, showDetails }) {
   const {
     id,
-    name, 
+    name,
     occupancy,
     location,
     year,
@@ -24,20 +22,9 @@ function RVCard({ rv }) {
     user_id,
   } = rv;
 
-    const showDetails = (id) => {
-      fetch(`/rvs/${id}`)
-      .then(res => res.json())
-      .then(data => {
-          console.log(data)
-      })
-    };
-
   return (
-    <Col >
-      <Card
-        onClick={() => showDetails(id)} 
-        role="button" 
-        >
+    <Col>
+      <Card onClick={() => showDetails(id)} role="button">
         <Card.Body>
           <Card.Img 
           variant="top" 
@@ -45,6 +32,7 @@ function RVCard({ rv }) {
           className="mb-3 image_card"
           />
           <Card.Title>The {name}.</Card.Title>
+
           <Card.Text className="small my-1">Rate: ${day_rate} /night</Card.Text>
           <Card.Text className="small my-1">Location: {location}</Card.Text>
           <Card.Text className="small my-1">Sleeps: {occupancy}</Card.Text>
@@ -52,7 +40,8 @@ function RVCard({ rv }) {
           <Row className="pb-3 d-flex align-content-center" >
             {pet_friendly
               ? <Col>
-                  <Card.Text>{pet_friendly ? <i className="fa fa-paw" aria-hidden="true" /> : <i class="fa fa-paw" aria-hidden="true" style={{display: "none"}}/>}
+                  <Card.Text>
+                    <i className="fa fa-paw" aria-hidden="true" />
                   </Card.Text>
                 </Col>
               : null
@@ -73,17 +62,15 @@ function RVCard({ rv }) {
             ? <Col>
                 <Card.Text>{air_conditioned ? <i className="fa fa-snowflake-o" aria-hidden="true" /> : null}</Card.Text>
               </Col>
-            : null
-            }
-            
+             : null}
           </Row>
-          
 
-          <Card.Subtitle className="mb-2 text-muted">{description}</Card.Subtitle>
+          <Card.Subtitle className="mb-2 text-muted">
+            {description}
+          </Card.Subtitle>
         </Card.Body>
       </Card>
     </Col>
-    
   );
 }
 
