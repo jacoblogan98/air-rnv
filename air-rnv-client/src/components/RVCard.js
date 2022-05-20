@@ -3,12 +3,10 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
-
-
-function RVCard({ rv }) {
+function RVCard({ rv, showDetails }) {
   const {
     id,
-    name, 
+    name,
     occupancy,
     location,
     year,
@@ -24,27 +22,17 @@ function RVCard({ rv }) {
     user_id,
   } = rv;
 
-    const showDetails = (id) => {
-      fetch(`/rvs/${id}`)
-      .then(res => res.json())
-      .then(data => {
-          console.log(data)
-      })
-    };
-
   return (
-    <Col >
-      <Card
-        onClick={() => showDetails(id)} 
-        role="button" 
-        >
+    <Col>
+      <Card onClick={() => showDetails(id)} role="button">
         <Card.Body>
-          <Card.Img 
-          variant="top" 
-          src="https://source.unsplash.com/random/500x500" 
-          className="mb-3"
+          <Card.Img
+            variant="top"
+            src="https://source.unsplash.com/random/500x500"
+            className="mb-3"
           />
           <Card.Title>The {name}.</Card.Title>
+
           <Card.Text className="small my-1">Rate: ${day_rate} /night</Card.Text>
           <Card.Text className="small my-1">Location: {location}</Card.Text>
           <Card.Text className="small my-1">Sleeps: {occupancy}</Card.Text>
@@ -73,17 +61,15 @@ function RVCard({ rv }) {
             ? <Col>
                 <Card.Text>{air_conditioned ? <i class="fa fa-snowflake-o" aria-hidden="true" /> : null}</Card.Text>
               </Col>
-            : null
-            }
-            
+            ) : null}
           </Row>
-          
 
           <Card.Subtitle className="mb-2 text-muted">{description}</Card.Subtitle>
         </Card.Body>
       </Card>
     </Col>
     
+
   );
 }
 
