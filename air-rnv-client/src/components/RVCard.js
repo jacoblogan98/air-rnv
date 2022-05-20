@@ -20,7 +20,7 @@ function RVCard({ rv }) {
     air_conditioned,
     shower,
     tv,
-    image_url,
+    image,
     user_id,
   } = rv;
 
@@ -41,8 +41,8 @@ function RVCard({ rv }) {
         <Card.Body>
           <Card.Img 
           variant="top" 
-          src="https://source.unsplash.com/random/500x500" 
-          className="mb-3"
+          src={image} 
+          className="mb-3 image_card"
           />
           <Card.Title>The {name}.</Card.Title>
           <Card.Text className="small my-1">Rate: ${day_rate} /night</Card.Text>

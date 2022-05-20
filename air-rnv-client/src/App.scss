@@ -53,6 +53,11 @@ $theme-colors: (
     background-color: #480a00
 }
 
+.image_card {
+    height: 300px;
+    width: 500px
+}
+
 @import "~bootstrap/scss/bootstrap";
 
 
