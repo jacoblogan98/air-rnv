@@ -1,4 +1,5 @@
 import React from "react";
+import ImageCarousel from "../components/ImageCarousel";
 
 
 function Details({ currentDetails }) {
@@ -24,8 +25,6 @@ function Details({ currentDetails }) {
     reviews
   } = currentDetails;
 
-  const renderPhotos = photos.map((photo) => <img src={photo.url} alt={photo.id} key={photo.id}/>)
-
   const renderReviews = reviews.map((review) => {
     return (
       <ul> 
@@ -43,7 +42,7 @@ function Details({ currentDetails }) {
       <ul>
         {renderReviews}
       </ul>
-      {renderPhotos}
+      <ImageCarousel photos={photos} />
       <h4>Name: {name}</h4>
       <h4>Length: {length}</h4>
       <h4>Day Rate: {day_rate}</h4>
