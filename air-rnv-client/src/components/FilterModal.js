@@ -1,10 +1,15 @@
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
-function FilterModal() {
+function FilterModal({ showModal, setShowModal }) {
   return (
-    <Modal size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
-      <Modal.Header closeButton>
+    <Modal
+      show={showModal}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton onClick={() => setShowModal(false)}>
         <Modal.Title id="contained-modal-title-vcenter">
           Modal heading
         </Modal.Title>
@@ -18,7 +23,7 @@ function FilterModal() {
         </p>
       </Modal.Body>
       <Modal.Footer>
-        <Button></Button>
+        <Button onClick={() => setShowModal(false)}>Filter</Button>
       </Modal.Footer>
     </Modal>
   );
