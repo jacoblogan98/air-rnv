@@ -4,11 +4,11 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 
 
-function Home({ rvList, showDetails }) {
+function Home({ rvList, handleCardClick }) {
 
   const renderRvs = rvList.map((rv) => {
     console.log(rv);
-    return <RVCard key={rv.id} rv={rv} showDetails={showDetails} />;
+    return <RVCard key={rv.id} rv={rv} handleCardClick={handleCardClick} />;
   });
 
   return (
