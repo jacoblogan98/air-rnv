@@ -5,8 +5,10 @@ import CloseButton from "react-bootstrap/esm/CloseButton";
 
 function FilterModal({ showModal, setShowModal }) {
   return (
+
     <Modal show={showModal} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
       <Modal.Header>
+    
         <Modal.Title id="contained-modal-title-vcenter">
           Modal heading
         </Modal.Title>
@@ -21,7 +23,7 @@ function FilterModal({ showModal, setShowModal }) {
         </p>
       </Modal.Body>
       <Modal.Footer>
-        <Button>Filter</Button>
+        <Button onClick={() => setShowModal(false)}>Filter</Button>
       </Modal.Footer>
     </Modal>
   );
