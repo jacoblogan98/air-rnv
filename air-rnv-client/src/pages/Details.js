@@ -12,6 +12,7 @@ function Details() {
     fetch(`/rvs/${params.id}`)
     .then(resp => resp.json())
     .then((rvData) => {
+      console.log(rvData)
       setRvDetails(rvData)
       setIsLoaded(true)
     })
