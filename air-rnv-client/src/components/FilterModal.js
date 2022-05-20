@@ -1,18 +1,18 @@
+import React from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import CloseButton from "react-bootstrap/esm/CloseButton";
 
 function FilterModal({ showModal, setShowModal }) {
   return (
-    <Modal
-      show={showModal}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
-      <Modal.Header closeButton onClick={() => setShowModal(false)}>
+
+    <Modal show={showModal} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+      <Modal.Header>
+    
         <Modal.Title id="contained-modal-title-vcenter">
           Modal heading
         </Modal.Title>
+        <CloseButton onClick={() => setShowModal(false)} />
       </Modal.Header>
       <Modal.Body>
         <h4>Centered Modal</h4>

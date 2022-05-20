@@ -3,6 +3,7 @@ import RVCard from "../components/RVCard";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import FilterModal from "../components/FilterModal";
+import Button from "react-bootstrap/esm/Button";
 
 function Home({ handleCardClick }) {
   const [showModal, setShowModal] = useState(false);
@@ -30,19 +31,18 @@ function Home({ handleCardClick }) {
 
   return (
     <Container fluid>
-      <button
-        onClick={() => setShowModal(!showModal)}
-        type="button"
-        className="btn btn-primary"
-        data-toggle="modal"
-        data-target="#exampleModalCenter"
+      <FilterModal showModal={showModal} setShowModal={setShowModal}/>
+      <Button
+        onClick={() => setShowModal(true)}
+        variant="primary"
       >
         Launch modal
-      </button>
-      {showModal ? (
-        <FilterModal showModal={showModal} setShowModal={setShowModal} />
-      ) : null}
-      <input onChange={(e) => handleChange(e)} /> Search
+
+      </Button>
+
+      <input onChange={e => handleChange(e)} /> Search
+
+
       <Row xs={1} sm={2} md={3} lg={4}>
         {renderRvs}
       </Row>
