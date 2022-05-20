@@ -9,13 +9,6 @@ import Details from "./pages/Details";
 
 function App() {
   const history = useHistory();
-  const [rvList, setRvList] = useState([]);
-
-  useEffect(() => {
-    fetch("/rvs")
-      .then((res) => res.json())
-      .then((data) => setRvList(data));
-  }, []);
 
   const handleCardClick = (id) => {
     history.push(`/details/${id}`)
@@ -26,7 +19,7 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path="/">
-          <Home rvList={rvList} handleCardClick={handleCardClick} />
+          <Home handleCardClick={handleCardClick} />
         </Route>
         <Route exact path="/about">
           <About />
