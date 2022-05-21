@@ -8,8 +8,9 @@ function FilterModal({ showModal, setShowModal }) {
   return (
 
     <Modal show={showModal} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
-      <Modal.Header>
-        <Modal.Title id="contained-modal-title-vcenter">
+      <Modal.Header className="bg-sand">
+        <Modal.Title id="contained-modal-title-vcenter" className="bubble-font text-maple"
+        >
           Filter RV's
         </Modal.Title>
         <CloseButton onClick={() => setShowModal(false)} />
@@ -17,8 +18,8 @@ function FilterModal({ showModal, setShowModal }) {
       <Modal.Body>
         <ModalForm />
       </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={() => setShowModal(false)}>Filter</Button>
+      <Modal.Footer className="bg-sand">
+        <Button id="btn-olive" onClick={() => setShowModal(false)}>Filter</Button>
       </Modal.Footer>
     </Modal>
   );

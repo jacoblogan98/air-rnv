@@ -32,7 +32,7 @@ function Home({ handleCardClick }) {
   return (
     <Container fluid>
       <FilterModal showModal={showModal} setShowModal={setShowModal}/>
-      <Button onClick={() => setShowModal(true)} variant="primary">
+      <Button onClick={() => setShowModal(true)} id="btn-olive">
         Launch modal
       </Button>
       <input onChange={e => handleChange(e)} /> Search

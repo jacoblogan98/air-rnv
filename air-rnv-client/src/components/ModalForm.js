@@ -3,7 +3,6 @@ import React from 'react'
 function ModalForm() {
   return (
     <>
-        <h4>Centered Modal</h4>
         <form>
             {/* >>>>>>>>>> Prices <<<<<<<<<< */}
             <div className="prices-data">
