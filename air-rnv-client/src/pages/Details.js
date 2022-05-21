@@ -59,7 +59,7 @@ function Details() {
         <Card
         key={review.id}
         style={{ width: '18rem' }}
-        className="mb-2"
+        className="mb-3 mx-auto"
         >
           <Card.Header className="bg-sand">{renderStars}</Card.Header>
           <Card.Body>
@@ -73,10 +73,20 @@ function Details() {
   })
   
   return (
-    <div>
-      <h2 className="ms-3 mt-2 fw-light">The {name}</h2>
+    <Container>
+      <Row className="w-75 ms-2">
+        <Col className="col-sm-4 col-xs-3 col-md-5 col-lg-3 pe-0 mx-auto">
+          <h2 className="mt-2 fw-light fs-1">The {name}</h2>
+        </Col>
+        <Col className="col-1 me-0 pe-0 my-auto justify-content-center">
+          <span className="fs-1">•</span>
+        </Col>
+        <Col className="col-md-4 col-sm-5 my-auto">
+          <p className="fs-5 fw-lighter ms-0 mt-3">{location}</p>
+        </Col>
+      </Row>
+
       <ImageCarousel photos={photos} />
-      <h4>Location: {location}</h4>
       <h4>Day Rate: {day_rate}</h4>
       <h4>Occupancy: {occupancy}</h4>
       <h4>Description: {description}</h4>
@@ -89,12 +99,12 @@ function Details() {
       <h4>Year: {year}</h4>
       <h4>Length: {length}</h4>
       <h4>RV Class: {rv_class}</h4>
-      <Container className="mb-4">
+      <Container className="mb-4 ">
         <Row className="justify-content-around">
           {renderReviews}
         </Row>
       </Container>
-    </div>
+    </Container>
   );
 }
 
