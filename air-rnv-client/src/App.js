@@ -1,5 +1,4 @@
 import { Switch, Route, useHistory } from "react-router-dom";
-import { useState, useEffect } from "react";
 import "./App.scss";
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
