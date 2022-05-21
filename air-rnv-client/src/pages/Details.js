@@ -52,7 +52,7 @@ function Details() {
       Arr.push("fa fa-star-o")
     }
 
-    const renderStars = Arr.map((starClass) => <span className={starClass}></span>)
+    const renderStars = Arr.map((starClass, i) => <span key={i} className={starClass}></span>)
 
     return (
       <ul key={review.id}> 
