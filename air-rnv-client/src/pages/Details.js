@@ -74,7 +74,7 @@ function Details() {
   
   return (
     <div>
-      <h2 className="bubble-font ">{name}</h2>
+      <h2 className="ms-3 mt-2 fw-light">The {name}</h2>
       <ImageCarousel photos={photos} />
       <h4>Location: {location}</h4>
       <h4>Day Rate: {day_rate}</h4>
