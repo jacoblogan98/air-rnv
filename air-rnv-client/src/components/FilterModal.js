@@ -8,7 +8,6 @@ function FilterModal({ showModal, setShowModal }) {
 
     <Modal show={showModal} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
       <Modal.Header>
-    
         <Modal.Title id="contained-modal-title-vcenter">
           Modal heading
         </Modal.Title>

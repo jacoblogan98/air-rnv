@@ -32,17 +32,10 @@ function Home({ handleCardClick }) {
   return (
     <Container fluid>
       <FilterModal showModal={showModal} setShowModal={setShowModal}/>
-      <Button
-        onClick={() => setShowModal(true)}
-        variant="primary"
-      >
+      <Button onClick={() => setShowModal(true)} variant="primary">
         Launch modal
-
       </Button>
-
       <input onChange={e => handleChange(e)} /> Search
-
-
       <Row xs={1} sm={2} md={3} lg={4}>
         {renderRvs}
       </Row>

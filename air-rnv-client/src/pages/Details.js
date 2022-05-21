@@ -42,13 +42,26 @@ function Details() {
   if (!isLoaded) return <h3>Loading...</h3>
 
   const renderReviews = reviews.map((review) => {
-    return (
-      <ul key={review.id}> 
-        <li>Rating: {review.rating}/5</li>
-        <li>By: {review.user_name}</li>
-        <li>{review.content}</li>
-      </ul>
-  )}
+      const Arr = []
+
+      for (let i = review.rating; i > 0; i--) {
+        Arr.push("fa fa-star checked")
+      }
+      
+      for (let i = (5 - review.rating); i > 0; i--) {
+          Arr.push("fa fa-star-o")
+        }
+
+        const renderStars = Arr.map((starClass) => <span className={starClass}></span>)
+
+        return (
+          <ul key={review.id}> 
+            <li>{renderStars}</li>
+            <li>By: {review.user_name}</li>
+            <li>{review.content}</li>
+          </ul>
+      )
+  }
 )
   
   return (
