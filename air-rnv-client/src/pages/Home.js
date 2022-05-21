@@ -32,7 +32,7 @@ function Home({ handleCardClick }) {
   return (
     <Container fluid>
       <Container className="d-flex flex-column align-items-center p-4">
-      <FilterModal showModal={showModal} setShowModal={setShowModal}/>
+      <FilterModal filteredList={filteredList} showModal={showModal} setShowModal={setShowModal}/>
       <input onChange={e => handleChange(e)} placeholder="Search by City..."/>
       <Button onClick={() => setShowModal(true)} id="btn-olive">Click to Filter</Button>
       </Container>

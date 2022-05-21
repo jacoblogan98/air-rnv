@@ -4,7 +4,15 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import CloseButton from "react-bootstrap/esm/CloseButton";
 
-function FilterModal({ showModal, setShowModal }) {
+function FilterModal({ filteredList, showModal, setShowModal }) {
+
+  const handleFilter = (e) => {
+    setShowModal(false)
+    // grab checked values and use filteredList.filter to go through each item and compare it to the form state
+    console.log(e)
+
+  }
+
   return (
 
     <Modal show={showModal} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
@@ -16,10 +24,10 @@ function FilterModal({ showModal, setShowModal }) {
         <CloseButton onClick={() => setShowModal(false)} />
       </Modal.Header>
       <Modal.Body>
-        <ModalForm />
+        <ModalForm filteredList={filteredList}/>
       </Modal.Body>
       <Modal.Footer className="bg-sand">
-        <Button id="btn-olive" onClick={() => setShowModal(false)}>Filter</Button>
+        <Button id="btn-olive" onClick={(e) => handleFilter(e)}>Filter</Button>
       </Modal.Footer>
     </Modal>
   );
