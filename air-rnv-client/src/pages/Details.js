@@ -14,12 +14,12 @@ function Details() {
 
   useEffect(() => {
     fetch(`/rvs/${params.id}`)
-    .then(resp => resp.json())
-    .then((rvData) => {
-      console.log(rvData)
-      setRvDetails(rvData)
-      setIsLoaded(true)
-    })
+      .then(resp => resp.json())
+      .then((rvData) => {
+        console.log(rvData)
+        setRvDetails(rvData)
+        setIsLoaded(true)
+      })
   }, [params.id])
 
   const {
@@ -41,13 +41,18 @@ function Details() {
 
   if (!isLoaded) return <h3>Loading...</h3>
 
+  const showerText = shower ? "Yes" : "No";
+  const tvText = tv ? "Yes" : "No";
+  const petText = pet_friendly ? "Yes" : "No";
+  const acText = air_conditioned ? "Yes" : "No"
+
   const renderReviews = reviews.map((review) => {
     const Arr = []
 
     for (let i = review.rating; i > 0; i--) {
       Arr.push("fa fa-star checked text-maple")
     }
-    
+
     for (let i = (5 - review.rating); i > 0; i--) {
       Arr.push("fa fa-star-o text-maple")
     }
@@ -57,9 +62,9 @@ function Details() {
     return (
       <Col>
         <Card
-        key={review.id}
-        style={{ width: '18rem' }}
-        className="mb-3 mx-auto"
+          key={review.id}
+          style={{ width: '18rem' }}
+          className="mb-3 mx-auto"
         >
           <Card.Header className="bg-sand">{renderStars}</Card.Header>
           <Card.Body>
@@ -68,38 +73,53 @@ function Details() {
           </Card.Body>
         </Card>
       </Col>
-      
+
     )
   })
-  
+
   return (
     <Container>
-      <Row className="w-75 ms-2">
+      <Row className="dw-75 ms-2">
         <Col className="col-sm-4 col-xs-3 col-md-5 col-lg-3 pe-0 mx-auto">
           <h2 className="mt-2 fw-light fs-1">The {name}</h2>
         </Col>
-        <Col className="col-1 me-0 pe-0 my-auto justify-content-center">
+        {/* <Col className="col-1 me-0 pe-0 my-auto justify-content-center">
           <span className="fs-1">•</span>
-        </Col>
+        </Col> */}
         <Col className="col-md-4 col-sm-5 my-auto">
           <p className="fs-5 fw-lighter ms-0 mt-3">{location}</p>
         </Col>
       </Row>
 
-      <ImageCarousel photos={photos} />
-      <h4>Day Rate: {day_rate}</h4>
-      <h4>Occupancy: {occupancy}</h4>
-      <h4>Description: {description}</h4>
+      <ImageCarousel className="border border-dark" photos={photos} />
+      <h4 className="text-center">{description}</h4>
+      <br/>
+      <br/>
+      <h3 className="mt-2 fw-light fs-1">Logistics</h3>
+      <Row className="text-center">
+        <Col >        
+        <h5>Sleeps: {occupancy}</h5>
+        <h5>${day_rate}/night</h5>
+        </Col>
+        <Col>        
+        <h5> {year} {rv_class} </h5>
+        <h5>Length: {length}'</h5>
+        </Col>
+      </Row>
+      <h5 className="mt-2 fw-light fs-1"> Amenities</h5>
+      <Row className="text-center">
+        <Col>
+        <h5>Air Conditioned? {acText}</h5>
+        <h5>Pet Friendly? {petText}</h5>
+        </Col>
+        <Col>
+        <h5>Shower? {showerText}</h5>
+        <h5>TV? {tvText}</h5>
+        </Col>
+      </Row>
 
-      <h4>Air Conditioned{air_conditioned}</h4>
-      <h4>Pet Friendly: {pet_friendly}</h4>
-      <h4>Shower: {shower}</h4>
-      <h4>TV: {tv}</h4>
-      
-      <h4>Year: {year}</h4>
-      <h4>Length: {length}</h4>
-      <h4>RV Class: {rv_class}</h4>
       <Container className="mb-4 ">
+        <h2 className="text-center">Reviews</h2>
         <Row className="justify-content-around">
           {renderReviews}
         </Row>
