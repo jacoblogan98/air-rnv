@@ -42,27 +42,26 @@ function Details() {
   if (!isLoaded) return <h3>Loading...</h3>
 
   const renderReviews = reviews.map((review) => {
-      const Arr = []
+    const Arr = []
 
-      for (let i = review.rating; i > 0; i--) {
-        Arr.push("fa fa-star checked")
-      }
-      
-      for (let i = (5 - review.rating); i > 0; i--) {
-          Arr.push("fa fa-star-o")
-        }
+    for (let i = review.rating; i > 0; i--) {
+      Arr.push("fa fa-star checked")
+    }
+    
+    for (let i = (5 - review.rating); i > 0; i--) {
+      Arr.push("fa fa-star-o")
+    }
 
-        const renderStars = Arr.map((starClass) => <span className={starClass}></span>)
+    const renderStars = Arr.map((starClass) => <span className={starClass}></span>)
 
-        return (
-          <ul key={review.id}> 
-            <li>{renderStars}</li>
-            <li>By: {review.user_name}</li>
-            <li>{review.content}</li>
-          </ul>
-      )
-  }
-)
+    return (
+      <ul key={review.id}> 
+        <li>{renderStars}</li>
+        <li>By: {review.user_name}</li>
+        <li>{review.content}</li>
+      </ul>
+    )
+  })
   
   return (
     <div>
