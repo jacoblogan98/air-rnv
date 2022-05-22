@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import AddReviewForm from "../components/AddReviewForm";
+import Review from "../components/Review"
 import ImageCarousel from "../components/ImageCarousel";
-import Card from "react-bootstrap/Card"
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
@@ -10,18 +11,8 @@ import Col from "react-bootstrap/Col"
 function Details() {
   const [rvDetails, setRvDetails] = useState([])
   const [isLoaded, setIsLoaded] = useState(false)
+  const [reviewList, setReviewList] = useState(rvDetails.reviews)
   const params = useParams()
-
-  useEffect(() => {
-    fetch(`/rvs/${params.id}`)
-      .then(resp => resp.json())
-      .then((rvData) => {
-        console.log(rvData)
-        setRvDetails(rvData)
-        setIsLoaded(true)
-      })
-  }, [params.id])
-
   const {
     photos,
     name,
@@ -38,44 +29,28 @@ function Details() {
     rv_class,
     reviews
   } = rvDetails;
-
-  if (!isLoaded) return <h3>Loading...</h3>
-
+  
   const showerText = shower ? "Yes" : "No";
   const tvText = tv ? "Yes" : "No";
   const petText = pet_friendly ? "Yes" : "No";
   const acText = air_conditioned ? "Yes" : "No"
 
-  const renderReviews = reviews.map((review) => {
-    const Arr = []
+  useEffect(() => {
+    fetch(`/rvs/${params.id}`)
+      .then(resp => resp.json())
+      .then((rvData) => {
+        console.log(rvData)
+        setRvDetails(rvData)
+        setIsLoaded(true)
+      })
+  }, [params.id], setRvDetails)
 
-    for (let i = review.rating; i > 0; i--) {
-      Arr.push("fa fa-star checked text-maple")
-    }
 
-    for (let i = (5 - review.rating); i > 0; i--) {
-      Arr.push("fa fa-star-o text-maple")
-    }
+  if (!isLoaded) return <h3>Loading...</h3>
 
-    const renderStars = Arr.map((starClass, i) => <span key={i} className={starClass}></span>)
+  const renderReviews = reviews.map((review) => <Review reviewList={reviewList} setReviewList={setReviewList} review={review} />)
 
-    return (
-      <Col>
-        <Card
-          key={review.id}
-          style={{ width: '18rem' }}
-          className="mb-3 mx-auto"
-        >
-          <Card.Header className="bg-sand">{renderStars}</Card.Header>
-          <Card.Body>
-            <Card.Title>{review.user_name}</Card.Title>
-            <Card.Text>{review.content}</Card.Text>
-          </Card.Body>
-        </Card>
-      </Col>
 
-    )
-  })
 
   return (
     <Container>
@@ -121,8 +96,10 @@ function Details() {
       <Container className="mb-4 ">
         <h2 className="text-center">Reviews</h2>
         <Row className="justify-content-around">
-          {renderReviews}
+        {renderReviews}
         </Row>
+        <h2 className="text-center">Leave a Review!</h2>
+        <AddReviewForm reviewList={reviewList} setReviewList={setReviewList} data={rvDetails} />
       </Container>
     </Container>
   );
