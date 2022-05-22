@@ -180,7 +180,7 @@ function ModalForm() {
 
                 <div>
                     <input
-                        type="range"
+                        type="number"
                         className="form-control-range"
                         id="formControlRange"
                     />
