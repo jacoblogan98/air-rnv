@@ -4,21 +4,19 @@ import Button from "react-bootstrap/Button"
 import Col from "react-bootstrap/Col"
 
 
-function Review({ review, reviewList, setReviewList }) {
+function Review({ allReviews, instanceReview, setReviewList }) {
 
 // need validation here to only delete Review if they are owner of that
   // if loggedIn.id === review.user_id then allow delete, else don't render button 
 
-  // ERROR Unexpected End of JSON Input.  Still persists but gives this error
 
     const deleteReview = (id) => {
         console.log(id)
         fetch(`/reviews/${id}`, {method: "DELETE"})
         .then(res => res.json())
         .then(data => {
-            
-            console.log(data)
-            const updatedReviewList = reviewList.filter(review => review.id !== id)
+
+            const updatedReviewList = allReviews.filter(review => review.id !== id)
             setReviewList(updatedReviewList)
         })
       }
@@ -26,11 +24,11 @@ function Review({ review, reviewList, setReviewList }) {
 
         const Arr = []
 
-        for (let i = review.rating; i > 0; i--) {
+        for (let i = instanceReview.rating; i > 0; i--) {
             Arr.push("fa fa-star checked text-maple")
         }
 
-        for (let i = (5 - review.rating); i > 0; i--) {
+        for (let i = (5 - instanceReview.rating); i > 0; i--) {
             Arr.push("fa fa-star-o text-maple")
         }
 
@@ -39,15 +37,15 @@ function Review({ review, reviewList, setReviewList }) {
         return (
             <Col>
                 <Card
-                    key={review.id}
+                    key={instanceReview.id}
                     style={{ width: '18rem' }}
                     className="mb-3 mx-auto"
                 >
                     <Card.Header className="bg-sand">{renderStars}</Card.Header>
                     <Card.Body>
-                        <Card.Title>{review.user_name}</Card.Title>
-                        <Card.Text>{review.content}</Card.Text>
-                        <Button onClick={() => deleteReview(review.id)}> Delete Review</Button>
+                        <Card.Title>{instanceReview.user_name}</Card.Title>
+                        <Card.Text>{instanceReview.content}</Card.Text>
+                        <Button onClick={() => deleteReview(instanceReview.id)}> Delete Review</Button>
 
                     </Card.Body>
                 </Card>
