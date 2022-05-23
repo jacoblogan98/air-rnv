@@ -53,6 +53,23 @@ $theme-colors: (
     background-color: #480a00
 }
 
+.image_card {
+    height: 300px;
+    width: 500px
+}
+
+.image_carousel {
+    max-height: 800px;
+}
+
+.bubble-font {
+    font-family: "Fascinate Inline";
+}
+
+.big-font {
+    font-size: 2rem
+}
+
 @import "~bootstrap/scss/bootstrap";
 
 
