@@ -11,7 +11,7 @@ import Col from "react-bootstrap/Col"
 function Details() {
   const [rvDetails, setRvDetails] = useState([])
   const [isLoaded, setIsLoaded] = useState(false)
-  const [reviewList, setReviewList] = useState(rvDetails.reviews)
+  const [reviewList, setReviewList] = useState()
   const params = useParams()
   const {
     photos,
@@ -29,6 +29,7 @@ function Details() {
     rv_class,
     reviews
   } = rvDetails;
+
   
   const showerText = shower ? "Yes" : "No";
   const tvText = tv ? "Yes" : "No";
@@ -39,16 +40,15 @@ function Details() {
     fetch(`/rvs/${params.id}`)
       .then(resp => resp.json())
       .then((rvData) => {
-        console.log(rvData)
         setRvDetails(rvData)
         setIsLoaded(true)
       })
-  }, [params.id], setRvDetails)
+  }, [params.id, reviewList])
 
 
   if (!isLoaded) return <h3>Loading...</h3>
-
-  const renderReviews = reviews.map((review) => <Review reviewList={reviewList} setReviewList={setReviewList} review={review} />)
+  console.log(reviewList)
+  const renderReviews = reviews.map((review) => <Review setReviewList={setReviewList} allReviews={reviews} instanceReview={review} />)
 
 
 
