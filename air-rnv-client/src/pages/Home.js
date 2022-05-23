@@ -31,18 +31,11 @@ function Home({ handleCardClick }) {
 
   return (
     <Container fluid>
-      <FilterModal showModal={showModal} setShowModal={setShowModal}/>
-      <Button
-        onClick={() => setShowModal(true)}
-        variant="primary"
-      >
-        Launch modal
-
-      </Button>
-
-      <input onChange={e => handleChange(e)} /> Search
-
-
+      <Container className="d-flex flex-column align-items-center p-4">
+      <FilterModal filteredList={filteredList} showModal={showModal} setShowModal={setShowModal}/>
+      <input onChange={e => handleChange(e)} placeholder="Search by City..."/>
+      <Button onClick={() => setShowModal(true)} id="btn-olive">Click to Filter</Button>
+      </Container>
       <Row xs={1} sm={2} md={3} lg={4}>
         {renderRvs}
       </Row>
